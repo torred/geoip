@@ -36,7 +36,6 @@ jobs:
           LICENSE_KEY: ${{ secrets.MAXMIND_GEOLITE2_LICENSE }}
         run: |
           mkdir -p output
-          echo ${LICENSE_KEY}
           curl -L "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-ASN&license_key=${LICENSE_KEY}&suffix=tar.gz" -o ./output/GeoLite2-ASN.tar.gz
           curl -L "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-ASN-CSV&license_key=${LICENSE_KEY}&suffix=zip" -o ./output/GeoLite2-ASN-CSV.zip
           curl -L "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&license_key=${LICENSE_KEY}&suffix=tar.gz" -o ./output/GeoLite2-Country.tar.gz
@@ -44,7 +43,6 @@ jobs:
 
       - name: Prepare GeoLite2 databases
         run: |
-          ls -la ./output
           cp ./output/{*.gz,*.zip} ./
           unzip GeoLite2-Country-CSV.zip
           unzip GeoLite2-ASN-CSV.zip
