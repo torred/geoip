@@ -43,12 +43,12 @@ jobs:
 
       - name: Prepare GeoLite2 databases
         run: |
-          ls -la ./output
           cp ./output/{*.gz,*.zip} ./
-          unzip GeoLite2-Country-CSV
-          unzip GeoLite2-ASN-CSV.zip
-          tar -xvzf GeoLite2-Country.tar.gz
-          tar -xvzf GeoLite2-ASN.tar.gz
+          ls -la ./
+          unzip ./GeoLite2-Country-CSV.zip
+          unzip ./GeoLite2-ASN-CSV.zip
+          tar -xvzf ./GeoLite2-Country.tar.gz
+          tar -xvzf ./GeoLite2-ASN.tar.gz
 
           cp GeoLite2-Country_*/*.mmdb ./output/
           cp GeoLite2-ASN_*/*.mmdb ./output/
